@@ -1,3 +1,7 @@
+## What is InstantSend?
+
+InstantSend is an advanced service that allows for near-instant transactions to take place. With this system, inputs can be locked to specific transactions and verified by consensus of the masternode network. Conflicting transactions and blocks are rejected. If a consensus cannot be reached by the masternode network, validation of the transaction will occur through standard block confirmation. InstantSend is able to solve the double-spending problem without the longer confirmation times of other cryptocurriencies such as Bitcoin.
+
 ## InstantSend Technical Information
 
 InstantSend has been integrated into the Core Daemon in two ways:
@@ -12,8 +16,8 @@ When a "Transaction Lock" occurs the hash of the related transaction is broadcas
 * `zmqpubhashtxlock`: publishes the transaction hash when locked via InstantSend
 
 This mechanism has been integrated into Bitcore-Node-Dash which allows for notification to be broadcast through Insight API in one of two ways:
-* WebSocket: [https://github.com/dashpay/insight-api-dash#web-socket-api](https://github.com/dashpay/insight-api-dash#web-socket-api)
-* API: [https://github.com/dashpay/insight-api-dash#instantsend-transactions](https://github.com/dashpay/insight-api-dash#instantsend-transactions)
+* WebSocket: [https://github.com/dashbanana/insight-api-dash#web-socket-api](https://github.com/dashbanana/insight-api-dash#web-socket-api)
+* API: [https://github.com/dashbanana/insight-api-dash#instantsend-transactions](https://github.com/dashbanana/insight-api-dash#instantsend-transactions)
 
 #### Command line option
 

@@ -814,7 +814,7 @@
         <translation>Etykieta staje się czerwona, jeżeli któryś z odbiorców otrzymuje kwotę mniejszą niż obecna granica pyłu.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
+        <source>Can vary +/- %1 puff(s) per input.</source>
         <translation>Może się różnić około +/- %1 duff(ów) na transację.</translation>
     </message>
     <message>

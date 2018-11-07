@@ -11,6 +11,7 @@
 #include "chainparams.h"
 #include "consensus/validation.h"
 #include "hash.h"
+#include "hashdb.h"
 #include "init.h"
 #include "validation.h"
 #include "merkleblock.h"
@@ -653,7 +654,7 @@ void PeerLogicValidation::UpdatedBlockTip(const CBlockIndex *pindexNew, const CB
 void PeerLogicValidation::BlockChecked(const CBlock& block, const CValidationState& state) {
     LOCK(cs_main);
 
-    const uint256 hash(block.GetHash());
+    const uint256 hash(phashdb->GetHash(block));
     std::map<uint256, NodeId>::iterator it = mapBlockSource.find(hash);
 
     int nDoS = 0;
@@ -1886,7 +1887,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CBlock block;
         vRecv >> block;
 
-        CInv inv(MSG_BLOCK, block.GetHash());
+        CInv inv(MSG_BLOCK, phashdb->GetHash(block));
         LogPrint("net", "received block %s peer=%d\n", inv.hash.ToString(), pfrom->id);
 
         pfrom->AddInventoryKnown(inv);
@@ -1896,7 +1897,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         // Such an unrequested block may still be processed, subject to the
         // conditions in AcceptBlock().
         bool forceProcessing = pfrom->fWhitelisted && !IsInitialBlockDownload();
-        const uint256 hash(block.GetHash());
+        const uint256 hash(phashdb->GetHash(block));
         {
             LOCK(cs_main);
             // Also always process if we requested the block explicitly, as we may

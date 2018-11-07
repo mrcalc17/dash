@@ -60,7 +60,7 @@ public:
         DASH,
         mDASH,
         uDASH,
-        duffs
+        puffs
     };
 
     enum SeparatorStyle

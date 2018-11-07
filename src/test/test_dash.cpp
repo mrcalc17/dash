@@ -66,6 +66,7 @@ TestingSetup::TestingSetup(const std::string& chainName) : BasicTestingSetup(cha
         pblocktree = new CBlockTreeDB(1 << 20, true);
         pcoinsdbview = new CCoinsViewDB(1 << 23, true);
         pcoinsTip = new CCoinsViewCache(pcoinsdbview);
+        phashdb = new CHashDB(1 << 23, true);
         InitBlockIndex(chainparams);
 #ifdef ENABLE_WALLET
         bool fFirstRun;
@@ -95,6 +96,7 @@ TestingSetup::~TestingSetup()
         delete pcoinsTip;
         delete pcoinsdbview;
         delete pblocktree;
+        delete phashdb;
 #ifdef ENABLE_WALLET
         bitdb.Flush(true);
         bitdb.Reset();

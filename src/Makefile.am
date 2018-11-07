@@ -119,6 +119,7 @@ BITCOIN_CORE_H = \
   flat-database.h \
   hash.h \
   hdchain.h \
+  hashdb.h \
   httprpc.h \
   httpserver.h \
   init.h \
@@ -219,6 +220,7 @@ libbitcoin_server_a_SOURCES = \
   chain.cpp \
   checkpoints.cpp \
   dsnotificationinterface.cpp \
+  hashdb.cpp \
   httprpc.cpp \
   httpserver.cpp \
   init.cpp \
@@ -301,6 +303,7 @@ libbitcoin_wallet_a_SOURCES = \
 # crypto primitives library
 crypto_libbitcoin_crypto_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_CONFIG_INCLUDES) $(PIC_FLAGS)
 crypto_libbitcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS) $(PIC_FLAGS)
+crypto_libbitcoin_crypto_a_CFLAGS = $(AM_CFLAGS) $(PIE_FLAGS) -msse4.2 -fomit-frame-pointer
 crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/common.h \
   crypto/hmac_sha256.cpp \
@@ -315,7 +318,18 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha256.cpp \
   crypto/sha256.h \
   crypto/sha512.cpp \
-  crypto/sha512.h
+  crypto/sha512.h \
+  crypto/yescrypt/yescrypt.c
+
+noinst_HEADERS = \
+  crypto/yescrypt/sha256.h \
+  crypto/yescrypt/sha256_c.h \
+  crypto/yescrypt/sysendian.h \
+  crypto/yescrypt/yescrypt.h \
+  crypto/yescrypt/yescrypt-best_c.h \
+  crypto/yescrypt/yescrypt-opt_c.h \
+  crypto/yescrypt/yescrypt-platform_c.h \
+  crypto/yescrypt/yescrypt-simd_c.h
 
 # x11
 crypto_libbitcoin_crypto_a_SOURCES += \

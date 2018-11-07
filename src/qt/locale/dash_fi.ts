@@ -814,7 +814,7 @@
         <translation>Tämä nimi vaihtuu punaiseksi jos yksikään vastaanottaja saa pienemmän määrän kuin nykyinen tomun määritelty raja-arvo.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
+        <source>Can vary +/- %1 puff(s) per input.</source>
         <translation>Voi vaihdella +/- %1 duffs per syöte.</translation>
     </message>
     <message>

@@ -798,7 +798,7 @@
         <translation>Tento popis sčervenie ak ktorýkoľvek príjemca dostane sumu menšiu ako súčasný limit pre "prach".</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
+        <source>Can vary +/- %1 puff(s) per input.</source>
         <translation>Môže sa pohybovať +/- %1 duff(y) pre vstup.</translation>
     </message>
     <message>
